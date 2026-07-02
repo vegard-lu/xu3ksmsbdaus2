@@ -3,33 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitt Bilde</title>
+    <title>Mitt Bildegalleri</title>
     <style>
-        /* Sørger for at bakgrunnen er ren og sentrerer bildet */
+        /* Sentrerer innholdet på siden og setter en ren bakgrunn */
         body {
             margin: 0;
-            padding: 0;
-            background-color: #f0f0f0; /* Lys grå bakgrunn, kan endres til f.eks. #ffffff for hvit */
+            padding: 40px 20px;
+            background-color: #f5f5f7; /* Lys og moderne gråfarge */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+            gap: 30px; /* Gir 30 piksler avstand mellom hvert bilde automatisk */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* Stiler bildet så det ikke blir større enn skjermen */
+        /* Felles stil for alle bildene */
         img {
-            max-width: 90%;  /* Bildet vil ta maks 90% av skjermbredden */
-            max-height: 90vh; /* Bildet vil ta maks 90% av skjermhøyden */
-            height: auto;     /* Beholder de originale proporsjonene */
-            width: auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Gir en pen, profesjonell skygge rundt bildet */
-            border-radius: 4px; /* Gjøre hjørnene ørlite grann avrundet */
+            max-width: 100%;   /* Sørger for at bildet aldri blir bredere enn mobil-/PC-skjermen */
+            width: auto;       /* Beholder bildets naturlige bredde opp til maks-grensen */
+            max-height: 85vh;  /* Sørger for at bildene ikke blir høyere enn 85% av skjermhøyden */
+            height: auto;      /* Beholder de originale proporsjonene (bildet blir ikke strukket) */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* En svak, elegant skygge */
+            border-radius: 8px; /* Litt avrundede hjørner for et moderne utseende */
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <img src="image.png" alt="Mitt bilde">
+    <img src="image.png" alt="Bilde 1">
+    
+    <img src="image1.png" alt="Bilde 2">
+    
+    <img src="image2.png" alt="Bilde 3">
+    
+    <img src="image3.png" alt="Bilde 4">
 
 </body>
 </html>
