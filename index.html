@@ -2,184 +2,40 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> BANESTREKNING </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Banestrekning</title>
     <style>
-        body {
-            text-align: center;
-            font-family: sans-serif;
-            padding: 40px 20px;
-            background-color: #f5f5f7;
+        /* Fjerner marginer og tvinger siden til å fylle 100% av skjermen */
+        html, body {
             margin: 0;
-            color: #333;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        /* Ren stil for PDF-visningen uten skygge eller boks */
-        .pdf-fullvisning {
-            max-width: 700px;
+            padding: 0;
             width: 100%;
-            margin: 0 auto 40px auto;
+            height: 100%;
             overflow: hidden;
+            background-color: #f5f5f7;
         }
 
-        /* Vi bruker iframe og fjerner standardrammen til nettleseren */
-        .pdf-fullvisning iframe {
+        /* Container som sikrer at rulling fungerer optimalt på iOS/iPhone */
+        .pdf-fullvisning {
             width: 100%;
-            height: 1000px; /* Juster denne opp/ned hvis du får rullefelt inni */
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Tvinger iframe til å fylle hele containeren */
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
             display: block;
-            background-color: transparent;
-        }
-
-        /* Stil for informasjonsboksen */
-        .info-boks {
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            background-color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: left;
-            line-height: 1.6;
-        }
-
-        .info-boks h2 {
-            margin-top: 0;
-            color: #111;
-            border-bottom: 2px solid #e5e5ea;
-            padding-bottom: 10px;
-        }
-
-        .info-boks h3 {
-            margin-top: 25px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            border-left: 4px solid #007aff;
-            padding-left: 8px;
-        }
-
-        /* Lenke-knapper */
-        .lenke-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-            margin-bottom: 25px;
-        }
-
-        .dokument-lenke {
-            display: inline-block;
-            padding: 12px 15px;
-            background-color: #007aff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-
-        .dokument-lenke:hover {
-            background-color: #0056b3;
-        }
-
-        /* Liste-oppsett */
-        ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Galleri-oppsett */
-        .galleri {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-        }
-
-        @media (max-width: 768px) {
-            .galleri, .info-boks, .pdf-fullvisning {
-                width: 95%;
-            }
-            .info-boks {
-                padding: 15px;
-            }
-            .pdf-fullvisning iframe {
-                height: 750px; 
-            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Banestrekning</h1>
-
     <div class="pdf-fullvisning">
         <iframe src="test12.pdf"></iframe>
-    </div>
-
-    <div class="info-boks">
-        <h2>Operative dokumenter og feilretting</h2>
-         
-        <div class="lenke-container">
-            <a class="dokument-lenke" href="https://flytoget.sharepoint.com/sites/Flytogboka/Godkjente%20dokumenter%20Flytoget/Begrensninger%20i%20drift%20type%2078.pdf" target="_blank">
-                📄 Begrensninger i drift type 78
-            </a>
-            <a class="dokument-lenke" href="https://flytoget.sharepoint.com/sites/Flytogboka/Godkjente%20dokumenter%20Flytoget/Teknisk%20h%C3%A5ndbok%20type%2078%20for%20flytogf%C3%B8rer.pdf" target="_blank">
-                📄 Teknisk håndbok type 78
-            </a>
-        </div>
-
-        <h3>Bremseutstyr og avstengning (B-ventiler)</h3>
-        <ul>
-            <li><strong>B12:</strong> Ingen EP, men nødbrems. (Ingen begrensning)</li>
-            <li><strong>B13:</strong> C-trykk brems (ny bremseprosent 143%, ingen andre begrensninger. Togsett kompenserer.). (Stenger du begge B13 på endevogn, kjøreforbud).</li>
-            <li><strong>B15:</strong> Styreventil (kan kjøres som normalt, kun HL-brems man tar).</li>
-        </ul>
-
-        <p style="margin-top: 15px;"><em>Venstre foran og høyre bak for avstemning av bremser.</em></p>
-
-        <h3>Hovedkompressor & trykkverdier</h3>
-        <ul>
-            <li>Normalt trykk: 8,5–10 bar.</li>
-            <li>Nødbrems slår inn på 6,4 bar. Må heves til 6,8 bar for å løse ut.</li>
-            <li>Traksjonsperre ved 6,8 bar.</li>
-            <li>Under 7,5 bar vil begge kompressorer gå frem til 10 bar.</li>
-            <li>Ved 4,5 bar i HL slår traksjonsperre inn, og må over 4,8 bar for å koble inn igjen.</li>
-        </ul>
-
-        <h3>Fartsavhengig bremsetrykk</h3>
-        <ul>
-            <li>Lavavbremsing: 2,9 bar over 170 km/t.</li>
-            <li>Høyavbremsing: 3,8 bar under 170 km/t.</li>
-        </ul>
-
-        <h3>Merknad vedrørende feilmerking</h3>
-        <p><strong>S4</strong> er feilmerket i førerrom. Ta togradio-sikringen der i stedet for å utføre resett på togradio.</p>
-    </div>
-
-    <div class="galleri">
-        <img src="S5.png" alt="Bilde 1">
-        <img src="s4mi2.png" alt="Bilde 2">
-        <img src="s4mi2del2.png" alt="Bilde 3">
-        <img src="S3mi2.png" alt="Bilde 4">
     </div>
 
 </body>
